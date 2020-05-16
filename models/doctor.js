@@ -1,6 +1,26 @@
 const mongoose=require('mongoose');
 
-const DoctorApi=new mongoose.Schema({
-          
+const userSchema=new mongoose.Schema({
+     
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+
+    password:{
+       type:String,
+       required:true,
+    },
+    name:{
+        type:String,
+        required:true
+    }
     
+},{
+    timestamps:true
 });
+
+
+const doctorS=mongoose.model("doctorS",userSchema);
+module.exports=doctorS;
